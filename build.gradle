@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+group 'com.restassured'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('net.serenity-bdd:serenity-gradle-plugin:2.1.4')
+    }
+}
+ext {
+    serenityVersion = '2.1.4'
+    serenityCucumberVersion = '1.9.51'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
