@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.hasItem;
 public class GetUserListStepDefinition {
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that (.*) request the list of users$")
+    @Given("^(.*) request the list of users$")
     public void thatAndreaRequestTheListOfUsers(String actorName){
         OnStage.theActorCalled(actorName).whoCan(CallAnApi.at(environmentVariables.getProperty("restapi.baseurl")))
                 .attemptsTo(RequestTheUserList.registered());
