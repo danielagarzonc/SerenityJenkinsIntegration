@@ -23,7 +23,6 @@ public class GetUserListStepDefinition {
     @Then("^sees the user list sucessfully$")
     public void seesTheUserListSucessfully(){
         OnStage.theActorInTheSpotlight().should(ResponseConsequence.seeThatResponse(response->response.statusCode(200)));
-
     }
 
     @And("^sees (.*) in the list$")
